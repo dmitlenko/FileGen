@@ -1,4 +1,3 @@
-![logo](https://raw.githubusercontent.com/dmitlenko/FileGen/main/Media/title.png "logo")
 # FileGen
 
 ##### FileGen is a simple file generator from 1MB to 5GB.
