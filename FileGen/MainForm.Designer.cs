@@ -39,7 +39,9 @@ namespace FileGen
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.link = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
+            this.fileSizeNumField = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSizeNumField)).BeginInit();
             this.SuspendLayout();
             // 
             // fileCreator
@@ -50,12 +52,12 @@ namespace FileGen
             // 
             this.filenameField.Location = new System.Drawing.Point(8, 72);
             this.filenameField.Name = "filenameField";
-            this.filenameField.Size = new System.Drawing.Size(256, 20);
+            this.filenameField.Size = new System.Drawing.Size(280, 20);
             this.filenameField.TabIndex = 0;
             // 
             // createButton
             // 
-            this.createButton.Location = new System.Drawing.Point(200, 152);
+            this.createButton.Location = new System.Drawing.Point(224, 152);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(64, 24);
             this.createButton.TabIndex = 1;
@@ -77,21 +79,15 @@ namespace FileGen
             this.filesizeField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filesizeField.FormattingEnabled = true;
             this.filesizeField.Items.AddRange(new object[] {
-            "1 Mb",
-            "5 Mb",
-            "10 Mb",
-            "50 Mb",
-            "100 Mb",
-            "500 Mb",
-            "1000 Mb",
-            "2000 Mb",
-            "3000 Mb",
-            "4000 Mb",
-            "5000 Mb"});
-            this.filesizeField.Location = new System.Drawing.Point(8, 120);
+            "b",
+            "Kb",
+            "Mb",
+            "Gb"});
+            this.filesizeField.Location = new System.Drawing.Point(224, 120);
             this.filesizeField.Name = "filesizeField";
-            this.filesizeField.Size = new System.Drawing.Size(256, 21);
+            this.filesizeField.Size = new System.Drawing.Size(64, 21);
             this.filesizeField.TabIndex = 3;
+            this.filesizeField.SelectedIndexChanged += new System.EventHandler(this.filesizeField_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -108,7 +104,7 @@ namespace FileGen
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(8, 8);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(256, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(280, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -126,18 +122,41 @@ namespace FileGen
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(208, 184);
+            this.label3.Location = new System.Drawing.Point(232, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "v1.0";
+            this.label3.Text = "v1.1";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // fileSizeNumField
+            // 
+            this.fileSizeNumField.Location = new System.Drawing.Point(8, 120);
+            this.fileSizeNumField.Maximum = new decimal(new int[] {
+            1024,
+            0,
+            0,
+            0});
+            this.fileSizeNumField.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.fileSizeNumField.Name = "fileSizeNumField";
+            this.fileSizeNumField.Size = new System.Drawing.Size(208, 20);
+            this.fileSizeNumField.TabIndex = 8;
+            this.fileSizeNumField.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 208);
+            this.ClientSize = new System.Drawing.Size(296, 208);
+            this.Controls.Add(this.fileSizeNumField);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.link);
             this.Controls.Add(this.pictureBox1);
@@ -153,6 +172,7 @@ namespace FileGen
             this.Text = "FileGen";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSizeNumField)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +189,7 @@ namespace FileGen
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel link;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown fileSizeNumField;
     }
 }
 

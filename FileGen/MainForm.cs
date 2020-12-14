@@ -14,10 +14,10 @@ namespace FileGen
 {
     public partial class MainForm : Form
     {
-        private void createFile(string path,int size)
+        private void createFile(string path,long size)
         {
             FileStream fs = new FileStream(@path, FileMode.OpenOrCreate);
-            fs.Seek(((long)size) * 1024 * 1024, SeekOrigin.Begin);
+            fs.Seek(((long)size - 1), SeekOrigin.Begin);
             fs.WriteByte(0);
             fs.Close();
         }
@@ -46,7 +46,27 @@ namespace FileGen
         private void fileCreator_FileOk(object sender, CancelEventArgs e)
         {
             string input = filesizeField.SelectedItem.ToString();
-            createFile(fileCreator.FileName, Convert.ToInt32(Regex.Replace(input, "[^0-9]", "")));
+            //createFile(fileCreator.FileName, (int)(fileSizeNumField.Value * (10 ^ ( filesizeField.SelectedIndex + 1 ))));
+            switch (filesizeField.SelectedIndex)
+            {
+                case 0:
+                    createFile(fileCreator.FileName, (long)fileSizeNumField.Value );
+                    break;
+                case 1:
+                    createFile(fileCreator.FileName, (long)(fileSizeNumField.Value * 1024));
+                    break;
+                case 2:
+                    createFile(fileCreator.FileName, (long)(fileSizeNumField.Value * 1024 * 1024));
+                    break;
+                case 3:
+                    createFile(fileCreator.FileName, (long)(fileSizeNumField.Value * 1024 * 1024 * 1024));
+                    break;
+            }
+        }
+
+        private void filesizeField_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //hello)
         }
     }
 }
