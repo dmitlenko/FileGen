@@ -1,6 +1,6 @@
 # FileGen
 
-##### FileGen is a simple file generator from 1MB to 5GB.
+##### FileGen is a simple file generator of any size
 
 # How to create file?
 ##### 1. Change the file name and size.
