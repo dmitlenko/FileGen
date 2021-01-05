@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FileGen
@@ -17,7 +10,7 @@ namespace FileGen
         private void createFile(string path,long size)
         {
             FileStream fs = new FileStream(@path, FileMode.OpenOrCreate);
-            fs.Seek(((long)size - 1), SeekOrigin.Begin);
+            fs.Seek((size - 1), SeekOrigin.Begin);
             fs.WriteByte(0);
             fs.Close();
         }
